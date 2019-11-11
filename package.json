@@ -1,0 +1,18 @@
+{
+  "name": "eric-first-forkify",
+  "version": "1.0.0",
+  "description": "Eric trying out npm forkify",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "embrande",
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^4.41.2"
+  },
+  "dependencies": {
+    "angular": "^1.7.8",
+    "jquery": "^3.4.1"
+  }
+}
