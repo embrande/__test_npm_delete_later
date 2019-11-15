@@ -1,6 +1,8 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
+output.publicPath = '/';
+
 module.exports = {
 	entry: './src/js/index.js',
 	output: {
@@ -12,10 +14,8 @@ module.exports = {
 	},
 	plugins: [
 		new HtmlWebpackPlugin({
-			hash: true,
-			title: "Forkify Application",
 			filename: 'index.html',
 			template: './src/index.html'
 		})
 	]
-};
+}; 
