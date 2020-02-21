@@ -21,6 +21,9 @@ const controlRecipe = async () => {
 		// create recipe object
 		state.recipe = new Recipe(id);
 
+		// FOR TESTING: DELETE THIS
+		window.r = state.recipe;
+
 		try{
 			// get recipe data
 			await state.recipe.getRecipe();
@@ -39,7 +42,11 @@ const controlRecipe = async () => {
 
 const controlSearch = async () => {
 	// Get query from the view
-	const query = searchView.getInput();
+	// FOR TESTING: UNCOMMENT OUT
+	// const query = searchView.getInput();
+
+	// FOR TESTING: DELETE THIS
+	const query = "pizza";
 
 	if (query){
 		// New search object and add to state
@@ -57,6 +64,7 @@ const controlSearch = async () => {
 			// Render results on UI
 			clearLoader();
 			searchView.renderResults(state.search.result);
+
 		}catch(error){
 			clearLoader();
 			console.log(error);
@@ -65,6 +73,12 @@ const controlSearch = async () => {
 }
 
 elements.searchForm.addEventListener('submit', e=>{
+	e.preventDefault();
+	controlSearch();
+});
+
+// FOR TESTING: DELETE THIS
+window.addEventListener('load', e=>{
 	e.preventDefault();
 	controlSearch();
 });
