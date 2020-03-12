@@ -21,12 +21,11 @@ const controlRecipe = async () => {
 		// create recipe object
 		state.recipe = new Recipe(id);
 
-		// FOR TESTING: DELETE THIS
-		window.r = state.recipe;
 
 		try{
 			// get recipe data
 			await state.recipe.getRecipe();
+			state.recipe.parseIngredients();
 		
 			// calculate servings and time
 			state.recipe.calcTime();
@@ -43,10 +42,7 @@ const controlRecipe = async () => {
 const controlSearch = async () => {
 	// Get query from the view
 	// FOR TESTING: UNCOMMENT OUT
-	// const query = searchView.getInput();
-
-	// FOR TESTING: DELETE THIS
-	const query = "pizza";
+	const query = searchView.getInput();
 
 	if (query){
 		// New search object and add to state
@@ -73,12 +69,6 @@ const controlSearch = async () => {
 }
 
 elements.searchForm.addEventListener('submit', e=>{
-	e.preventDefault();
-	controlSearch();
-});
-
-// FOR TESTING: DELETE THIS
-window.addEventListener('load', e=>{
 	e.preventDefault();
 	controlSearch();
 });
